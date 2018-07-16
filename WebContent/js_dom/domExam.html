@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function insertP() {
+
+		value = document.createElement("p");
+		value.setAttribute("style", "background: yellow");
+
+		value2 = document.createTextNode("new P");
+
+		ptNode = document.getElementById("root");
+		value.appendChild(value2);
+		ptNode.appendChild(value);
+	}
+333
+	function deleteP() {
+
+		ptNode = document.getElementById("root");
+		if(ptNode.lastChild.nodeName=="#text"){
+			ptNode.removeChild(ptNode.lastChild);
+		}
+		ptNode.removeChild(ptNode.lastChild);
+
+	}
+
+	function deleteDivAndP() {
+		ptNode = document.getElementById("root");
+		nodelist = ptNode.childNodes;
+		size = nodelist.length;
+		// nodelist.length로 하면 삭제할때마다 length가 줄어들어서 size라는 고정된값을 줌
+		for (i = 0; i < size; i++) {
+			/* alert(nodelist.length); */
+			ptNode.removeChild(ptNode.firstChild);
+			
+			
+		}
+		
+/* 		while(ptNode.hasChildNodes()){
+			ptNode.removeChild(ptNode.firstChild);
+			
+		} */
+	}	
+
+	
+	
+	
+</script>
+</head>
+<body>
+	<div id="layer"></div>
+
+	<hr>
+
+	<div id="root">
+		<p style="background: gray;">line01</p>
+		<p style="background: skyblue">line02</p>
+		<p style="background: green;">line03</p>
+		<p style="background: red;">line04</p>
+	</div>
+
+	<hr>
+	<button onclick="insertP()">P태그추가하기</button>
+	<button onclick="deleteP()">P태그삭제하기</button>
+	<button onclick="deleteDivAndP()">div안의 모든 p태그 삭제하기</button>
+	<button onclick="innerHTML_test()">innerHTML</button>
+
+
+</body>
+</html>

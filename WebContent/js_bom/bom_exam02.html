@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	function idcheck(form){
+		id = form.id.value;
+		// this.form 으로 함수받으면 form name 대신 form 으로 사용가능
+		//브라우저객체도 자바스크립트에서 변수로 정의하고 사용할 수 있다.
+		resultDiv = document.getElementById("idchecking");
+		//alert(resultDiv);
+		str=""//div에 출력할 문자열을 저장할 변수
+		if(id.length < 4){
+			str = "4글자 이상의 아이디를 입력하세요";
+		}else{
+			if(id == "java"){
+				str = "이미 사용중인 아이디입니다.";
+			}else{
+				str = "사용가능한 아이디입니다."
+				//document.getElementById("idchecking").innerHTML = "사용가능한 아이디입니다.";
+			}
+		}
+		resultDiv.innerHTML= str;
+	}
+	</script>
+</head>
+<body>
+	<form name="myform">
+	<h1>티몬 회원가입</h1>
+	<h2>필수항목</h2>
+	아이디:<input type="text" name="id" onkeyup="idcheck(this.form)"/>
+	<div id="idchecking" style="font-size: 14pt; color: red; "></div>
+	<script type="text/javascript">
+	</script>
+	</form>
+</body>
+</html>

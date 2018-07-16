@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function amount(){
+			
+			countVal = myform.amountval.value;
+			result = countVal*0.9*12900;
+			document.getElementById("resultval").innerHTML = result;
+		}
+	
+	</script>
+</head>
+<body>
+	<form action="" name="myform">
+		수량:<input type="text" name="amountval" onkeyup="amount()" />
+		<span id="resultval"></span>
+	</form>
+</body>
+</html>

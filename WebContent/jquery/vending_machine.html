@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<link rel="stylesheet" href="../common/css/vending_style.css">
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+</head>
+<body>
+	<h1 style="text-align: center">자판기</h1>
+		<table id="main">
+			<tr>
+				<td><img src="../images/음료수/jetty.jpg" /><br/>500</td>
+				<td><img src="../images/음료수/aloe.jpg" /><br/>700</td>
+				<td><img src="../images/음료수/ambasa.jpg" /><br/>800</td>
+				<td><img src="../images/음료수/cocopam.jpg" /><br/>800</td>
+				<td><img src="../images/음료수/coke.jpg" /><br/>400</td>
+			</tr>
+			<tr>
+				<td><img src="../images/음료수/hotsix.jpg" /><br/>500</td>
+				<td><img src="../images/음료수/mccol.jpg" /><br/>600</td>
+				<td><img src="../images/음료수/power.jpg" /><br/>600</td>
+				<td><img src="../images/음료수/redbull.jpg" /><br/>700</td>
+				<td><img src="../images/음료수/sprite.jpg" /><br/>700</td>
+			</tr>
+			
+			
+		</table>
+		<br/>
+		<br/>
+		<br/>
+		
+	<div id="coin">돈투입
+		<input type="button" id="coin1" value="100원"/>
+		<input type="button" id="coin2" value="500원"/>
+		<input type="button" id="coin3" value="1000원"/>
+		<!-- 100원 500원 1000원 -->
+	</div>
+	<div id="money"></div>
+	<script>
+		$(document).ready(function(){
+			money = 0;
+			$("#coin1").on("click", function(){
+				money= money+100;
+				$("#money").text("투입요금"+money+"원");
+			});
+			$("#coin2").on("click", function(){
+				money= money+500;
+				$("#money").text("투입요금"+money+"원");
+			});
+			$("#coin3").on("click", function(){
+				money= money+1000;
+				$("#money").text("투입요금"+money+"원");
+			});
+			
+			$("td").on("click", function(){
+				var index = $("td").index(this); //td 인덱스로 텍스트가져오기
+				bill = $("td:eq"+"("+index+")").text();
+				//	bill = $("#t"+i).text();
+				
+				if(bill > money){
+					alert("금액부족");
+				}else{
+					alert(bill+" 원 지불");
+					money = money - bill;
+				$("#money").text("투입요금"+money+"원");
+				}
+			});
+			
+		});
+	</script>
+</body>
+</html>

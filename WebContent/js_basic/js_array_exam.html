@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		today = new Date();
+		year = today.getFullYear();
+		month = today.getMonth()+1;
+		date = today.getDate();
+		myarr = new Array("일", "월", "화", "수", "목", "금", "토");		
+		day = today.getDay();
+		document.write(year+"년"+month+"월"+date+"일"+myarr[day]+"요일");
+		//toLocaleDateString()은 작업하는 PC의 locale정보에 지정되어있는 날짜 표기법으로 객체의 요일정보를 리턴
+		// 운영체제에 설정되어있는 locale정보에 맞는 형태로 변환
+		// 한국 - __년__월__일 
+		// 미국 - __/__/__/
+		document.write(today.toLocaleDateString());
+		
+	</script>
+
+</body>
+</html>

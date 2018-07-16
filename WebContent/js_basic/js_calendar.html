@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		
+	
+	</script>
+	
+	<style type="text/css">
+	tr td{
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		today1 = new Date(); // 오늘날짜표시용
+		today = new Date();
+		fday = new Date(today.setDate(1));
+		myarr = new Array("일", "월", "화", "수", "목", "금", "토");	//요일
+		lastday = new Array(31, 28, 31, 30, 31, 30,
+							31, 31, 30, 31, 30, 31)//매달 마지막날
+		month = today.getMonth();					
+		day = fday.getDay(); 	//첫날 요일
+		cnt = day;				//요일 카운트
+		document.write(day);
+		
+		if((today.getFullYear()%4)==0 && (today.getFullYear()%100)==0){ //윤년계산
+			lastday[1]=29;
+		}
+		
+		document.write("<h3 align='center' color='blue'>"+today.getFullYear()+"년"+(today.getMonth()+1)+"월"+"</h3>");
+		
+		
+		document.write("<table border='1' width='800px' height='600px' align='center'>");
+		
+			document.write("<tr>");
+			for (i = 0; i < myarr.length; i++) { //요일
+				document.write("<th bgColor='orange'>");
+				document.write(myarr[i]);
+				document.write("</th>");
+			}
+			document.write("</tr>");
+
+			
+			
+			document.write("<tr>");
+			for (i = 0; i < day; i++) { //1일전을 비워놓기
+				document.write("<td></td>");
+			}
+		
+			for (i = 1; i <= lastday[month]; i++) {	//날짜시작
+				if(i==today1.getDate()){ //오늘 색깔넣기
+					document.write("<td bgColor='pink'>"+i+"</td>");
+				}else{
+					document.write("<td bgColor='yellow'>"+i+"</td>");
+				}
+				cnt++;
+				if(cnt==7){
+					document.write("</tr>");
+					cnt=0;
+				}
+				
+			}
+		
+		document.write("</table>");
+		
+	
+	</script>
+
+</body>
+</html>
